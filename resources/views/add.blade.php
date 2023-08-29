@@ -14,14 +14,20 @@
 </head>
 <body style="font-family: 'B Yekan'">
 
-<form action="{{route('test')}}" method="post" enctype="multipart/form-data">
+<form action="{{route('save')}}" method="post" enctype="multipart/form-data">
 
     @csrf
+    <div class="form-group">
+        <label for="title">عنوان</label>
+        <input type="text" class="form-control" id="title" name="title"  ria-describedby="title" placeholder="">
+
+    </div>
     <div class="form-group">
         <label for="zekr">ذکر</label>
         <input type="text" class="form-control" id="zekr" name="zekr"  ria-describedby="zekr" placeholder="">
 
     </div>
+
     <div class="form-group">
         <label for="allzekr">تعداد کل ذکر</label>
         <input type="number" class="form-control" id="allzekr" name="allzekr"  ria-describedby="allzekr" placeholder="">
@@ -37,8 +43,9 @@
     </div>
     <button type="submit" class="btn btn-primary">ثبت</button>
 </form>
-
-
+<form action="{{route('home')}}" method="get">
+<button type="submit" class="btn btn-primary">بازگشت</button>
+</form>
 <script type="text/javascript">
 
     let input = document.getElementById('numberofdays');
