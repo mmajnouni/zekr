@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CheckandsaveController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,4 +19,7 @@ Route::get('/', function () {
 //Route::post('/', function(){  ddd(request()->all()); })->name('test');
 
 
-Route::post('/', function(){  ddd(request()->all()); })->name('test');
+Route::post('/',  [CheckandsaveController::class, 'savetodb'])->name('test');
+Route::get('/save', function () {
+    return view('save');
+})->name('save');

@@ -18,6 +18,11 @@
 
     @csrf
     <div class="form-group">
+        <label for="zekr">ذکر</label>
+        <input type="text" class="form-control" id="zekr" name="zekr"  ria-describedby="zekr" placeholder="">
+
+    </div>
+    <div class="form-group">
         <label for="allzekr">تعداد کل ذکر</label>
         <input type="number" class="form-control" id="allzekr" name="allzekr"  ria-describedby="allzekr" placeholder="">
         <small id="emailHelp" class="form-text text-muted">تعداد ذکر کل اگر بصورت روز به روز باشد کار پایین پر شود</small>
