@@ -42,6 +42,13 @@
     <input type="hidden" value="{{$zekr->id}}">
 <input type="submit" value="حذف">
 </form>
+<form action="{{route('edit', $zekr->id)}}" method="get" enctype="multipart/form-data">
+    @method('get')
+    @csrf
+    <input type="hidden" value="{{$zekr->id}}">
+    <input type="submit" value="ویرایش">
+</form>
+
     <hr/>
 @endforeach
 </body>

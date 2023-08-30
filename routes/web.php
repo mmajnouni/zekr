@@ -24,3 +24,5 @@ Route::put('/do', [CheckandsaveController::class, 'do'])->name('do');
 Route::get('/do', [CheckandsaveController::class, 'doe'])->name('do');
 Route::get('/do2/{id}', [CheckandsaveController::class, 'do2'])->name('do2');
 Route::delete('/do/delete/{id}', [CheckandsaveController::class, 'destroy'])->name('destroy');
+Route::get('/edit/{id}',[CheckandsaveController::class, 'edit'])->name('edit');
+Route::put('/edit/{id}',[CheckandsaveController::class, 'edited'])->name('edit');

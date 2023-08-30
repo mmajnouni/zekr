@@ -69,11 +69,40 @@ class CheckandsaveController extends Controller
         return view('do', compact('see'));
     }
 
-    //حذف ذمر
+    //حذف ذکر
     public function destroy(Request $request) {
     $id = Checkandsave::where('id', $request['id'])->delete();
         Session::flash('deleteMessage', 'ذکر حذف شد');
         return redirect()->back();
+
+    }
+
+    // نمایش ویرایش ذکر
+    public function edit($id) {
+        $id = Checkandsave::find($id);
+
+       return view('edit', compact('id'));
+    }
+
+    //ویرایش ذکر
+    public function edited(Request $request) {
+      Checkandsave::where('id', $request['id']);
+        $this->validate($request,[
+            'title' => 'required',
+            'zekr'  => 'required',
+            'allzekr' => 'required',
+            'numberofdays' => 'nullable',
+            'everyday' => 'nullable'
+        ]);
+        Checkandsave::where('id', $request['id'])->update([
+            'title' => $request['title'],
+            'zekr' => $request['zekr'],
+            'allzekr' => $request['allzekr'],
+            'numberofdays' => $request['numberofdays'],
+            'everyday' => $request['everyday'],
+        ]);
+        Session::flash('createMessage', 'ذکر ویرایش شد');
+        return redirect()->route('confirm');
 
     }
 }
