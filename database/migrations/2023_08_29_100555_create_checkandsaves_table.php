@@ -15,9 +15,12 @@ class CreateCheckandsavesTable extends Migration
     {
         Schema::create('checkandsaves', function (Blueprint $table) {
             $table->id();
-            $table->string('allzekr');
-            $table->string('numberofdays');
-            $table->string('everyday');
+            $table->text('title');
+            $table->text('zekr');
+            $table->integer('allzekr');
+            $table->integer('numberofdays')->nullable();
+            $table->integer('everyday')->nullable();
+            $table->integer('counter')->default(0);
             $table->timestamps();
         });
     }

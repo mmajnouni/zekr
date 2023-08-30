@@ -10,7 +10,14 @@ class CheckandsaveController extends Controller
 {
     //ذخیره ذکر اضافه شده در دیتایس
     public function savetodb(Request $request) {
-       //return view('save');
+        $this->validate($request,[
+            'title' => 'required',
+            'zekr'  => 'required',
+            'allzekr' => 'required',
+            'numberofdays' => 'nullable',
+            'everyday' => 'nullable'
+
+        ]);
         Checkandsave::create([
             'title' => $request['title'],
             'zekr' => $request['zekr'],
@@ -60,5 +67,13 @@ class CheckandsaveController extends Controller
     public function do2($id) {
         $see = Checkandsave::find($id);
         return view('do', compact('see'));
+    }
+
+    //حذف ذمر
+    public function destroy(Request $request) {
+    $id = Checkandsave::where('id', $request['id'])->delete();
+        Session::flash('deleteMessage', 'ذکر حذف شد');
+        return redirect()->back();
+
     }
 }

@@ -19,27 +19,35 @@
     @csrf
     <div class="form-group">
         <label for="title">عنوان</label>
-        <input type="text" class="form-control" id="title" name="title"  ria-describedby="title" placeholder="">
+        <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"  ria-describedby="title" value="{{ old('title') }}" placeholder="اجباری">
+        @error('title')
+        <div class="alert alert-danger">عنوان وارد نشده است</div>
+        @enderror
 
     </div>
     <div class="form-group">
         <label for="zekr">ذکر</label>
-        <input type="text" class="form-control" id="zekr" name="zekr"  ria-describedby="zekr" placeholder="">
-
+        <input type="text" class="form-control @error('zekr') is-invalid @enderror" id="zekr" name="zekr"  ria-describedby="zekr" placeholder="اجباری">
+        @error('zekr')
+        <div class="alert alert-danger">ذکر وارد نشده است</div>
+        @enderror
     </div>
 
     <div class="form-group">
         <label for="allzekr">تعداد کل ذکر</label>
-        <input type="number" class="form-control" id="allzekr" name="allzekr"  ria-describedby="allzekr" placeholder="">
+        <input type="number" class="form-control @error('allzekr') is-invalid @enderror" id="allzekr" name="allzekr"  ria-describedby="allzekr" placeholder="اجباری">
         <small id="emailHelp" class="form-text text-muted">تعداد ذکر کل اگر بصورت روز به روز باشد کار پایین پر شود</small>
+        @error('allzekr')
+        <div class="alert alert-danger">ذکر وارد نشده است</div>
+        @enderror
     </div>
     <div class="form-group">
         <label for="numberofdays">تعداد روز</label>
-        <input type="number"  class="form-control" id="numberofdays" name ="numberofdays" placeholder="">
+        <input type="number"  class="form-control" id="numberofdays" name ="numberofdays" placeholder="اختیاری">
     </div>
     <div class="form-group">
         <label for="everyday">هر روز چه تعداد</label>
-        <input type="number" class="form-control" id="everyday" name="everyday" placeholder="">
+        <input type="number" class="form-control" id="everyday" name="everyday" placeholder="اختیاری">
     </div>
     <button type="submit" class="btn btn-primary">ثبت</button>
 </form>
