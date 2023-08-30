@@ -13,16 +13,15 @@
     <title>Zerk</title>
 </head>
 <body style="font-family: 'B Yekan'">
-<t2>به نرم افزار ذکر خوش آمدید</t2>
-<form action="{{route('add')}}" method="get">
-    <button type="submit" class="btn btn-primary">اضافه کردن ذکر</button>
-</form>
-<form action="{{route('see')}}" method="get">
-    <button type="submit" class="btn btn-primary">مشاهده ذکر ها</button>
-</form>
-<form action="{{route('do')}}" method="get">
-    <button type="submit" class="btn btn-primary">گفتن ذکر</button>
-</form>
+<h2>
+    <div class="alert alert-success">
+        <a href="{{route('home')}}"><input type="button"  value="بازگشت" ></a>
+    </div>
+</h2>
+@foreach($zekrs as $zekr)
+   <a href="{{route('do2', $zekr->id)}}"> <h3 class="mt-4">نام: {{$zekr->title}}</h3></a>
+    <h3 class="mt-4">ذکر: {{$zekr->zekr}}</h3>
+<hr/>
+@endforeach
 </body>
 </html>
-

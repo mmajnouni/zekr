@@ -20,3 +20,6 @@ Route::get('/see', [CheckandsaveController::class, 'see'])->name('see');
 
 Route::post('/',  [CheckandsaveController::class, 'savetodb'])->name('save');
 Route::get('/save', function () { return view('confirm');})->name('confirm');
+Route::put('/do', [CheckandsaveController::class, 'do'])->name('do');
+Route::get('/do', [CheckandsaveController::class, 'doe'])->name('do');
+Route::get('/do2/{id}', [CheckandsaveController::class, 'do2'])->name('do2');
